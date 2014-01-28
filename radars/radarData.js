@@ -86,6 +86,13 @@ var platforms_theta = {
   adopt: 180
 };
 
+var languages_theta = {
+  hold: 270,
+  assess: 270,
+  trial: 270,
+  adopt: 270
+};
+
 var theta_increment = {
   hold: 5,
   assess: 7,
@@ -107,6 +114,16 @@ function technique(ring) {
 function platforms(ring) {
   platforms_theta[ring] += theta_increment[ring];;
   var foo = platforms_theta[ring];
+  return (
+    {'r': radius[ring] - 20, 
+     't': foo
+    }
+    );
+}
+
+function languages(ring) {
+  languages_theta[ring] += theta_increment[ring];;
+  var foo = languages_theta[ring];
   return (
     {'r': radius[ring] - 20, 
      't': foo
@@ -200,17 +217,17 @@ var radar_data = [
         "left"  : (w-200+30),
         "top" :   (h/2 + 18),
         "items" : [ 
-            {"name":"Java language end of life", "pc":{"r":290,"t":355},"movement":"c"},   
-            {"name":"F#", "pc":{"r":270,"t":330},"movement":"c"},   
-            {"name":"Scala", "pc":{"r":290,"t":320},"movement":"c"},   
-            {"name":"Clojure", "pc":{"r":260,"t":310},"movement":"c"},   
-            {"name":"HTML 5", "pc":{"r":250,"t":275},"movement":"c"},   
-            {"name":"DSLs", "pc":{"r":190,"t":340},"movement":"c"},   
-            {"name":"Groovy", "pc":{"r":190,"t":280},"movement":"c"},   
-            {"name":"C#4", "pc":{"r":90,"t":355},"movement":"c"},   
-            {"name":"JRuby", "pc":{"r":90,"t":330},"movement":"c"},   
-            {"name":"Javascript as a 1st class language", "pc":{"r":90,"t":275},"movement":"c"},   
-            {"name":"Ruby", "pc":{"r":30,"t":282},"movement":"c"}
+            {"name":"Java language end of life", "pc":languages(assess),"movement":"c"},   
+            {"name":"F#", "pc":languages(assess),"movement":"c"},   
+            {"name":"Scala", "pc":languages(assess),"movement":"c"},   
+            {"name":"Clojure", "pc":languages(assess),"movement":"c"},   
+            {"name":"HTML 5", "pc":languages(assess),"movement":"c"},   
+            {"name":"DSLs", "pc":languages(trial),"movement":"c"},   
+            {"name":"Groovy", "pc":languages(trial),"movement":"c"},   
+            {"name":"C#4", "pc":languages(adopt),"movement":"c"},   
+            {"name":"JRuby", "pc":languages(adopt),"movement":"c"},   
+            {"name":"Javascript as a 1st class language", "pc":languages(adopt),"movement":"c"},   
+            {"name":"Ruby", "pc":languages(adopt),"movement":"c"}
         ]
     }
 ];
