@@ -72,11 +72,18 @@ var theta = {
   adopt:  adopt_theta
 };
 
-var technique_theta = {
+var techniques_theta = {
   hold: 90,
   assess: 90,
   trial: 90,
   adopt: 90
+};
+
+var platforms_theta = {
+  hold: 180,
+  assess: 180,
+  trial: 180,
+  adopt: 180
 };
 
 var theta_increment = {
@@ -88,9 +95,18 @@ var theta_increment = {
 
 
 function technique(ring) {
-  debugger;
-  technique_theta[ring] += theta_increment[ring];;
-  var foo = technique_theta[ring];
+  techniques_theta[ring] += theta_increment[ring];;
+  var foo = techniques_theta[ring];
+  return (
+    {'r': radius[ring] - 20, 
+     't': foo
+    }
+    );
+}
+
+function platforms(ring) {
+  platforms_theta[ring] += theta_increment[ring];;
+  var foo = platforms_theta[ring];
   return (
     {'r': radius[ring] - 20, 
      't': foo
@@ -128,7 +144,7 @@ var radar_data = [
         "top" : 18,
         "color" : "#587486",
         "items" : [ 
-            {"name":"ESB", "pc":{"r":390,"t":20},"movement":"t"},   
+            //{"name":"ESB", "pc":platforms(hold),"movement":"t"},   
             {"name":"Intentional Programming", "pc":{"r":310,"t":10},"movement":"c"},   
             {"name":"Cross mobile platforms", "pc":{"r":280,"t":85},"movement":"c"},   
             {"name":"Github", "pc":{"r":280,"t":70},"movement":"c"},   
@@ -153,30 +169,30 @@ var radar_data = [
          "top" : (h/2 + 18),
         "color" : "#DC6F1D",
         "items" : [
-            {"name":"Rich internet applications", "pc":{"r":390,"t":265},"movement":"c"},   
-            {"name":"GWT", "pc":{"r":390,"t":250},"movement":"c"},   
-            {"name":"IE8", "pc":{"r":390,"t":230},"movement":"c"},   
-            {"name":"WS-* beyond basic profile", "pc":{"r":390,"t":190},"movement":"c"},   
-            {"name":"Azure", "pc":{"r":290,"t":265},"movement":"c"},   
-            {"name":"Mobile Web", "pc":{"r":275,"t":260},"movement":"t"},   
-            {"name":"Google App Engine", "pc":{"r":290,"t":255},"movement":"c"},   
-            {"name":"Application appliances", "pc":{"r":190,"t":245},"movement":"c"},   
-            {"name":"Google as corporate platform", "pc":{"r":290,"t":200},"movement":"c"},   
-            {"name":"GPGPU", "pc":{"r":190,"t":185},"movement":"t"},   
-            {"name":"App containers", "pc":{"r":250,"t":260},"movement":"c"},   
-            {"name":"OAuth", "pc":{"r":130,"t":260},"movement":"t"},   
-            {"name":"RDFa", "pc":{"r":130,"t":250},"movement":"t"},   
-            {"name":"Location based services", "pc":{"r":130,"t":230},"movement":"c"},   
-            {"name":"iPad", "pc":{"r":130,"t":220},"movement":"c"},   
-            {"name":"EC2 & S3", "pc":{"r":190,"t":250},"movement":"c"},   
-            {"name":"Facebook as a business platform", "pc":{"r":190,"t":190},"movement":"c"},   
-            {"name":"JVM as platform", "pc":{"r":90,"t":265},"movement":"c"},   
-            {"name":"iPhone", "pc":{"r":90,"t":215},"movement":"c"},   
-            {"name":"Android", "pc":{"r":90,"t":190},"movement":"c"},   
-            {"name":"KVM", "pc":{"r":70,"t":260},"movement":"t"},   
-            {"name":"Atom", "pc":{"r":70,"t":245},"movement":"t"},   
-            {"name":"ALT.NET", "pc":{"r":90,"t":190},"movement":"c"},   
-            {"name":"IE6 End of Life", "pc":{"r":30,"t":225},"movement":"c"}
+            {"name":"Rich internet applications", "pc":platforms(hold),"movement":"c"},   
+            {"name":"GWT", "pc":platforms(hold),"movement":"c"},   
+            {"name":"IE8", "pc":platforms(hold),"movement":"c"},   
+            {"name":"WS-* beyond basic profile", "pc":platforms(hold),"movement":"c"},   
+            {"name":"Azure", "pc":platforms(assess),"movement":"c"},   
+            {"name":"Mobile Web", "pc":platforms(assess),"movement":"t"},   
+            {"name":"Google App Engine", "pc":platforms(assess),"movement":"c"},   
+            {"name":"Google as corporate platform", "pc":platforms(assess),"movement":"c"},   
+            {"name":"App containers", "pc":platforms(assess),"movement":"c"},   
+            {"name":"Application appliances", "pc":platforms(trial),"movement":"c"},   
+            {"name":"GPGPU", "pc":platforms(trial),"movement":"t"},   
+            {"name":"OAuth", "pc":platforms(trial),"movement":"t"},   
+            {"name":"RDFa", "pc":platforms(trial),"movement":"t"},   
+            {"name":"Location based services", "pc":platforms(trial),"movement":"c"},   
+            {"name":"iPad", "pc":platforms(trial),"movement":"c"},   
+            {"name":"EC2 & S3", "pc":platforms(trial),"movement":"c"},   
+            {"name":"Facebook as a business platform", "pc":platforms(trial),"movement":"c"},   
+            {"name":"JVM as platform", "pc":platforms(adopt),"movement":"c"},   
+            {"name":"iPhone", "pc":platforms(adopt),"movement":"c"},   
+            {"name":"Android", "pc":platforms(adopt),"movement":"c"},   
+            {"name":"KVM", "pc":platforms(adopt),"movement":"t"},   
+            {"name":"Atom", "pc":platforms(adopt),"movement":"t"},   
+            {"name":"ALT.NET", "pc":platforms(adopt),"movement":"c"},   
+            {"name":"IE6 End of Life", "pc":platforms(adopt),"movement":"c"}
         ]
     },
     { "quadrant": "Languages",
