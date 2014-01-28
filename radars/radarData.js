@@ -48,14 +48,27 @@ var radar_arcs = [
 var h = 1160;
 var w = 1200;
 
+var hold   = 400;
+var assess = 300;
+var trial  = 200;
+var adopt  = 100;
+
+function technique(ring) {
+  return (
+    {'r': ring - 20, 
+     't':135
+    }
+    );
+}
+
 var radar_data = [
     { "quadrant": "Techniques",
         "left" : 45,
         "top" : 18,
         "color" : "#8FA227",
         "items" : [ 
-            {"name":"Database based Integration", "pc":{"r":350,"t":135},"movement":"t", "blipSize":700},
-            {"name":"Scrum certification", "pc":{"r":350,"t":95},"movement":"c", "url":"http://www.google.com"},
+            {"name":"Database based Integration", "pc":technique(hold),"movement":"t", "blipSize":700},
+            //{"name":"Scrum certification", "pc":technique(hold),"movement":"c", "url":"http://www.google.com"},
             {"name":"Incremental data warehousing", "pc":{"r":250,"t":165},"movement":"c"},    
             {"name":"DevOps", "pc":{"r":250,"t":110},"movement":"c"},    
             {"name":"Polygot Programming", "pc":{"r":180,"t":170},"movement":"c"},    
