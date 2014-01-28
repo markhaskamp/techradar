@@ -72,9 +72,16 @@ var theta = {
   adopt:  adopt_theta
 };
 
+var theta_increment = {
+  hold: 5,
+  assess: 7,
+  trial: 10,
+  adopt: 12
+}
+
 
 function technique(ring) {
-  theta[ring] += 5;
+  theta[ring] += theta_increment[ring];;
   console.log('theta[' + ring + ']: ' + theta[ring]);
   return (
     {'r': radius[ring] - 20, 
@@ -91,21 +98,21 @@ var radar_data = [
         "items" : [ 
             {"name":"Database based Integration", "pc":technique(hold),"movement":"t"},
             {"name":"Scrum certification", "pc":technique(hold),"movement":"c"},
-            {"name":"Incremental data warehousing", "pc":{"r":250,"t":165},"movement":"c"},    
-            {"name":"DevOps", "pc":{"r":250,"t":110},"movement":"c"},    
-            {"name":"Polygot Programming", "pc":{"r":180,"t":170},"movement":"c"},    
-            {"name":"Automation of technical tests", "pc":{"r":180,"t":155},"movement":"c"},    
-            {"name":"Capability modelling", "pc":{"r":180,"t":125},"movement":"c"},   
-            {"name":"Service choreography", "pc":{"r":180,"t":105},"movement":"c"},   
-            {"name":"Continuous deployment", "pc":{"r":180,"t":100},"movement":"c"},   
-            {"name":"Evolutionary architecture", "pc":{"r":120,"t":95},"movement":"c"},   
-            {"name":"Coding architects", "pc":{"r":90,"t":170},"movement":"c"},   
-            {"name":"Visualisation and metrics", "pc":{"r":80,"t":150},"movement":"c"},   
-            {"name":"Web as platform", "pc":{"r":80,"t":110},"movement":"c"},   
-            {"name":"Emergent design", "pc":{"r":80,"t":100},"movement":"c"},   
-            {"name":"Evolutionary database", "pc":{"r":70,"t":170},"movement":"c"},   
-            {"name":"Platform roadmaps", "pc":{"r":30,"t":100},"movement":"c"},   
-            {"name":"Build pipelines", "pc":{"r":30,"t":160},"movement":"c"} 
+            {"name":"Incremental data warehousing", "pc":technique(assess),"movement":"c"},    
+            {"name":"DevOps", "pc":technique(assess),"movement":"c"},    
+            {"name":"Polygot Programming", "pc":technique(trial),"movement":"c"},    
+            {"name":"Automation of technical tests", "pc":technique(trial),"movement":"c"},    
+            {"name":"Capability modelling", "pc":technique(trial),"movement":"c"},   
+            {"name":"Service choreography", "pc":technique(trial),"movement":"c"},   
+            {"name":"Continuous deployment", "pc":technique(trial),"movement":"c"},   
+            {"name":"Evolutionary architecture", "pc":technique(trial),"movement":"c"},   
+            {"name":"Coding architects", "pc":technique(adopt),"movement":"c"},   
+            {"name":"Visualisation and metrics", "pc":technique(adopt),"movement":"c"},   
+            {"name":"Web as platform", "pc":technique(adopt),"movement":"c"},   
+            {"name":"Emergent design", "pc":technique(adopt),"movement":"c"},   
+            {"name":"Evolutionary database", "pc":technique(adopt),"movement":"c"},   
+            {"name":"Platform roadmaps", "pc":technique(adopt),"movement":"c"},   
+            {"name":"Build pipelines", "pc":technique(adopt),"movement":"c"} 
         ]
     },
     { "quadrant": "Tools",
