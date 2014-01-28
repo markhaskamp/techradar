@@ -72,20 +72,28 @@ var theta = {
   adopt:  adopt_theta
 };
 
+var technique_theta = {
+  hold: 90,
+  assess: 90,
+  trial: 90,
+  adopt: 90
+};
+
 var theta_increment = {
   hold: 5,
   assess: 7,
   trial: 10,
   adopt: 12
-}
+};
 
 
 function technique(ring) {
-  theta[ring] += theta_increment[ring];;
-  console.log('theta[' + ring + ']: ' + theta[ring]);
+  debugger;
+  technique_theta[ring] += theta_increment[ring];;
+  var foo = technique_theta[ring];
   return (
     {'r': radius[ring] - 20, 
-     't': theta[ring]
+     't': foo
     }
     );
 }
