@@ -48,15 +48,37 @@ var radar_arcs = [
 var h = 1160;
 var w = 1200;
 
-var hold   = 400;
-var assess = 300;
-var trial  = 200;
-var adopt  = 100;
+var hold   = 'hold';
+var assess = 'assess';
+var trial  = 'trial';
+var adopt  = 'adopt';
+
+var hold_theta   = 90;
+var assess_theta = 90;
+var trial_theta  = 90;
+var adopt_theta  = 90;
+
+var radius = {
+  'hold':   400,
+  'assess': 300,
+  'trial':  200,
+  'adopt':  100
+};
+
+var theta = {
+  hold:   hold_theta,
+  assess: assess_theta,
+  trial:  trial_theta,
+  adopt:  adopt_theta
+};
+
 
 function technique(ring) {
+  theta[ring] += 5;
+  console.log('theta[' + ring + ']: ' + theta[ring]);
   return (
-    {'r': ring - 20, 
-     't':135
+    {'r': radius[ring] - 20, 
+     't': theta[ring]
     }
     );
 }
@@ -67,8 +89,8 @@ var radar_data = [
         "top" : 18,
         "color" : "#8FA227",
         "items" : [ 
-            {"name":"Database based Integration", "pc":technique(hold),"movement":"t", "blipSize":700},
-            //{"name":"Scrum certification", "pc":technique(hold),"movement":"c", "url":"http://www.google.com"},
+            {"name":"Database based Integration", "pc":technique(hold),"movement":"t"},
+            {"name":"Scrum certification", "pc":technique(hold),"movement":"c"},
             {"name":"Incremental data warehousing", "pc":{"r":250,"t":165},"movement":"c"},    
             {"name":"DevOps", "pc":{"r":250,"t":110},"movement":"c"},    
             {"name":"Polygot Programming", "pc":{"r":180,"t":170},"movement":"c"},    
