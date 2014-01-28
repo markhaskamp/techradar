@@ -93,6 +93,13 @@ var languages_theta = {
   adopt: 270
 };
 
+var tools_theta = {
+  hold: 0,
+  assess: 0,
+  trial: 0,
+  adopt: 0
+};
+
 var theta_increment = {
   hold: 5,
   assess: 7,
@@ -131,6 +138,16 @@ function languages(ring) {
     );
 }
 
+function tools(ring) {
+  tools_theta[ring] += theta_increment[ring];;
+  var foo = tools_theta[ring];
+  return (
+    {'r': radius[ring] - 20, 
+     't': foo
+    }
+    );
+}
+
 var radar_data = [
     { "quadrant": "Techniques",
         "left" : 45,
@@ -161,24 +178,24 @@ var radar_data = [
         "top" : 18,
         "color" : "#587486",
         "items" : [ 
-            //{"name":"ESB", "pc":platforms(hold),"movement":"t"},   
-            {"name":"Intentional Programming", "pc":{"r":310,"t":10},"movement":"c"},   
-            {"name":"Cross mobile platforms", "pc":{"r":280,"t":85},"movement":"c"},   
-            {"name":"Github", "pc":{"r":280,"t":70},"movement":"c"},   
-            {"name":"Restfulie", "pc":{"r":280,"t":50},"movement":"c"},   
-            {"name":"RDF triple stores", "pc":{"r":280,"t":30},"movement":"c"},   
-            {"name":"Apache camel", "pc":{"r":180,"t":85},"movement":"c"},   
-            {"name":"Next gen test tools", "pc":{"r":180,"t":75},"movement":"c"},   
-            {"name":"NoSQL", "pc":{"r":180,"t":65},"movement":"c"},   
-            {"name":"Neo4j", "pc":{"r":180,"t":50},"movement":"c"},   
-            {"name":"Message busses without smarts", "pc":{"r":160,"t":85},"movement":"c"},   
-            {"name":"Puppet", "pc":{"r":130,"t":85},"movement":"c"},   
-            {"name":"mongoDB", "pc":{"r":130,"t":55},"movement":"c"},   
-            {"name":"Mercurial", "pc":{"r":130,"t":30},"movement":"c"},   
-            {"name":"Git", "pc":{"r":130,"t":15},"movement":"c"},   
-            {"name":"Squid", "pc":{"r":80,"t":85},"movement":"c"},   
-            {"name":"ASP.NET MVC", "pc":{"r":80,"t":10},"movement":"c"},   
-            {"name":"Subversion", "pc":{"r":30,"t":30},"movement":"c"}
+            {"name":"ESB", "pc":tools(hold),"movement":"t"},   
+            {"name":"Intentional Programming", "pc":tools(hold),"movement":"c"},   
+            {"name":"Cross mobile platforms", "pc":tools(assess),"movement":"c"},   
+            {"name":"Github", "pc":tools(assess),"movement":"c"},   
+            {"name":"Restfulie", "pc":tools(assess),"movement":"c"},   
+            {"name":"RDF triple stores", "pc":tools(assess),"movement":"c"},   
+            {"name":"Apache camel", "pc":tools(trial),"movement":"c"},   
+            {"name":"Next gen test tools", "pc":tools(trial),"movement":"c"},   
+            {"name":"NoSQL", "pc":tools(trial),"movement":"c"},   
+            {"name":"Neo4j", "pc":tools(trial),"movement":"c"},   
+            {"name":"Message busses without smarts", "pc":tools(trial),"movement":"c"},   
+            {"name":"Puppet", "pc":tools(trial),"movement":"c"},   
+            {"name":"mongoDB", "pc":tools(trial),"movement":"c"},   
+            {"name":"Mercurial", "pc":tools(trial),"movement":"c"},   
+            {"name":"Git", "pc":tools(trial),"movement":"c"},   
+            {"name":"Squid", "pc":tools(adopt),"movement":"c"},   
+            {"name":"ASP.NET MVC", "pc":tools(adopt),"movement":"c"},   
+            {"name":"Subversion", "pc":tools(adopt),"movement":"c"}
         ]
     },
     { "quadrant": "Platforms",
