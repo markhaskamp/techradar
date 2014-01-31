@@ -208,7 +208,7 @@ var radar_data = [
         "top" :   (h/2 + 18),
         "items" : [ 
             {"name":"elixir", "pc":languages(assess),"movement":"c"},   
-            {"name":"angular / ember", "pc":languages(hold),"movement":"c"},   
+            {"name":"angular / ember", "pc":languages(adopt),"movement":"c"},   
             {"name":"backbone", "pc":languages(hold),"movement":"c"},   
             {"name":"knockout", "pc":languages(hold),"movement":"c"},   
             {"name":"react js", "pc":languages(assess),"movement":"c"},   
